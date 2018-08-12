@@ -4,7 +4,7 @@ from django.utils import timezone
 # Create your models here.
 class Registro(models.Model):
     autor = models.ForeignKey('auth.User', on_delete = models.CASCADE)
-    anio = models.PositiveSmallIntegerField(label = "Año")
+    anio = models.PositiveSmallIntegerField()
     orden = models.PositiveIntegerField()
     contenido = models.CharField(max_length = 200)
     cant_hojas = models.PositiveSmallIntegerField()
