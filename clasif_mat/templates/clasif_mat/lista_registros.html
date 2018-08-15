@@ -1,17 +1,10 @@
-<html>
-    <head>
-        <title>Lista de Registros</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    </head>
-    <body>
+
+{% extends 'clasif_mat/base.html' %}
+
+{% block content %}
+    {% for registro in registros %}
         <div>
-            <h1><a href="/">Registro de digitalización</a></h1>
+            <p>{{registro.orden}}. <a href="{% url 'detalle_registro' pk=registro.pk %}">{{registro.contenido}}</a> Hojas: {{registro.cant_hojas}} Fecha: {{registro.fecha_creacion}} por: {{registro.autor}}</p>
         </div>
-        {% for registro in registros %}
-            <div>
-                <p>{{registro.orden}}. {{registro.contenido}} Hojas: {{registro.cant_hojas}} Fecha: {{registro.fecha_creacion}} por: {{registro.autor}}</p>
-            </div>
-        {% endfor %}
-    </body>
-</html>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'clasif_mat/base.html' %}
+
+{% block content %}
+<div>
+    <p>{{registros.fecha_creacion}}</p>
+    <h2>{{registros.contenido}}</h2>
+    <p>Año: {{registros.anio}}</p>
+    <p>Nro orden: {{registros.orden}}</p>
+    <p>Cant Hojas: {{registros.cant_hojas}}</p>
+    <p>Fecha de escaneo: {{registros.fecha_digit}}</p>
+    <p>Realizado por: {{registros.autor}}</p>
+</div>
+{% endblock %}
