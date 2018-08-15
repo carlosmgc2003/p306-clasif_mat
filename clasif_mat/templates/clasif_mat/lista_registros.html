@@ -3,7 +3,13 @@
         <title>Lista de Registros</title>
     </head>
     <body>
-        <p>Hola mundo!</p>
-        <p>funciona!</p>
+        <div>
+            <h1><a href="/">Registro de digitalización</a></h1>
+        </div>
+        {% for registro in registros %}
+            <div>
+                <p>{{registro.orden}}. {{registro.contenido}} Hojas: {{registro.cant_hojas}} Fecha: {{registro.fecha_creacion}} por: {{registro.autor}}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>

@@ -8,10 +8,11 @@ class Registro(models.Model):
     orden = models.PositiveIntegerField()
     contenido = models.CharField(max_length = 200)
     cant_hojas = models.PositiveSmallIntegerField()
+    fecha_creacion = models.DateTimeField(default = timezone.now)
     fecha_digit = models.DateTimeField(blank = True, null = True)
     def digitalizacion(self):
         self.fecha_digit = timezone.now()
         self.save()
     
     def __str__(self):
-        return self.contenido
+        return self.contenido +" escaneado por: "+self.autor+" en: "+self.fecha_digit
