@@ -1,0 +1,9 @@
+{% extends 'clasif_mat/base.html' %}
+
+{% block content %}
+    <h1>Nuevo Registro</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_ul}}
+        <button type="submit" class="save btn btn-default">Guardar</button>
+    </form>
+{% endblock %}

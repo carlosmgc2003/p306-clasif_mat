@@ -3,6 +3,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.lista_registros),
     url(r'^registro/(?P<pk>[0-9]+)/$', views.detalle_registro, name='detalle_registro'),
+    url(r'^registro/nuevo/$', views.registro_nuevo, name='registro_nuevo')
 ]
 
 """
