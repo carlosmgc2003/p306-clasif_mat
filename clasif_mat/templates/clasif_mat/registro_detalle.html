@@ -2,12 +2,12 @@
 
 {% block content %}
 <div>
-    <p>{{registros.fecha_creacion}}</p>
-    <h2>{{registros.contenido}}</h2>
+    <h2 align="center">{{registros.contenido}}</h2>
     <p>Año: {{registros.anio}}</p>
-    <p>Nro orden: {{registros.orden}}</p>
     <p>Cant Hojas: {{registros.cant_hojas}}</p>
     <p>Fecha de escaneo: {{registros.fecha_digit}}</p>
+    <p>Fecha de carga: {{registros.fecha_creacion}}</p>
     <p>Realizado por: {{registros.autor}}</p>
+    <p><a href="{{registros.archivo}}">{{registros.archivo}}</a></p>
 </div>
 {% endblock %}

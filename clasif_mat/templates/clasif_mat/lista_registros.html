@@ -2,9 +2,28 @@
 {% extends 'clasif_mat/base.html' %}
 
 {% block content %}
-    {% for registro in registros %}
-        <div>
-            <p>{{registro.orden}}. <a href="{% url 'detalle_registro' pk=registro.pk %}">{{registro.contenido}}</a> Hojas: {{registro.cant_hojas}} Fecha: {{registro.fecha_creacion}} por: {{registro.autor}}</p>
+
+        <table class="table">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Contenido</th>
+                    <th>Hojas</th>
+                    <th>Fecha</th>
+                    <th>Autor</th>
+                    <th>Ruta</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registro in registros %}
+                <tr>
+                    <td class = "align-middle"><a href="{% url 'detalle_registro' pk=registro.pk %}">{{registro.contenido}}</a></td>
+                    <td class = "align-middle">{{registro.cant_hojas}}</td>
+                    <td class = "align-middle">{{registro.fecha_creacion}}</td>
+                    <td class = "align-middle">{{registro.autor}}</td>
+                    <td class = "align-middle"><a href="{{registro.archivo}}">{{registro.archivo}}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </div>
-{% endfor %}
+
 {% endblock %}

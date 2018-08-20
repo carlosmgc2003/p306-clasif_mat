@@ -3,3 +3,4 @@ __pycache__
 venvp306
 db.sqlite3
 .DS_Store
+uploads
