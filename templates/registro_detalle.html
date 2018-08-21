@@ -1,5 +1,9 @@
-{% extends 'clasif_mat/base.html' %}
-
+{% extends 'base.html' %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Listado</a></li>
+  <li class="breadcrumb-item active">{{ registros.contenido }}</li>
+{% endblock %}
+{% block title %}{{ registros.contenido }}{% endblock %}
 {% block content %}
 <div>
     <h2 align="center">{{registros.contenido}}</h2>

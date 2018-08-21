@@ -1,14 +1,19 @@
 
-{% extends 'clasif_mat/base.html' %}
-
+{% extends 'base.html' %}
+{% block title %}Listado de Registros - UNDEFI P306{% endblock %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item">Listado</li>
+{% endblock %}
 {% block content %}
-
+        <div class="mb-4">
+            <a href="{% url 'nuevo_registro' %}" class="btn btn-primary">Nuevo Registro</a>
+        </div>
         <table class="table">
             <thead class="thead-inverse">
                 <tr>
                     <th>Contenido</th>
                     <th>Hojas</th>
-                    <th>Fecha</th>
+                    <th>Fecha Creación</th>
                     <th>Autor</th>
                     <th>Ruta</th>
                 </tr>
