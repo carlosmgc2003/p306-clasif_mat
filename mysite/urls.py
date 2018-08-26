@@ -8,6 +8,8 @@ from clasif_mat import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^signup/$', accounts_views.signup, name='signup'),
+    url(r'^accounts/login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     url(r'^logout/$', auth_views.logout,{'next_page': 'signup'}, name='logout'),
     url(r'^$', views.lista_registros, name='home'),
     url(r'^registro/(?P<pk>[0-9]+)/$', views.detalle_registro, name='detalle_registro'),
