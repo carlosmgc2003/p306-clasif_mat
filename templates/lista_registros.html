@@ -12,6 +12,7 @@
             <thead class="thead-inverse">
                 <tr>
                     <th>Contenido</th>
+                    <th>Año</th>
                     <th>Hojas</th>
                     <th>Fecha Creación</th>
                     <th>Autor</th>
@@ -22,6 +23,7 @@
                 {% for registro in registros %}
                 <tr>
                     <td class = "align-middle"><a href="{% url 'detalle_registro' pk=registro.pk %}">{{registro.contenido}}</a></td>
+                    <td class = "align-middle">{{registro.anio}}</td>
                     <td class = "align-middle">{{registro.cant_hojas}}</td>
                     <td class = "align-middle">{{registro.fecha_creacion}}</td>
                     <td class = "align-middle">{{registro.autor}}</td>

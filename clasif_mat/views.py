@@ -15,6 +15,7 @@ class VistaListaRegistros(ListView):
     context_object_name = 'registros'
     template_name = 'lista_registros.html'
 
+@method_decorator(login_required, name='dispatch')
 class VistaEliminarRegistro(DeleteView):
     model = Registro
     success_url = reverse_lazy('home')
@@ -22,8 +23,8 @@ class VistaEliminarRegistro(DeleteView):
 
 @login_required
 def detalle_registro(request,pk):
-    registros = get_object_or_404(Registro, pk=pk)
-    return render(request, 'registro_detalle.html', {'registros':registros})
+    registro = get_object_or_404(Registro, pk=pk)
+    return render(request, 'registro_detalle.html', {'registro':registro})
 
 @method_decorator(login_required, name='dispatch')
 class VistaNuevoRegistro(CreateView):

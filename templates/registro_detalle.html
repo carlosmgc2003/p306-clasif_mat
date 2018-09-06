@@ -1,28 +1,30 @@
 {% extends 'base.html' %}
 {% block breadcrumb %}
-  <li class="breadcrumb-item"><a href="{% url 'home' %}">Listado</a></li>
-  <li class="breadcrumb-item active">{{ registros.contenido }}</li>
+<li class="breadcrumb-item"><a href="{% url 'home' %}">Listado</a></li>
+<li class="breadcrumb-item active">{{ registro.contenido }}</li>
 {% endblock %}
-{% block title %}{{ registros.contenido }}{% endblock %}
+{% block title %}{{ registro.contenido }}{% endblock %}
 {% block content %}
 <div>
-    <h2 align="center">{{registros.contenido}}</h2>
-    <p>Año: {{registros.anio}}</p>
-    <p>Cant Hojas: {{registros.cant_hojas}}</p>
-    <p>Fecha de carga: {{registros.fecha_creacion}}</p>
-    <p>Realizado por: {{registros.autor}}</p>
-    <p><a href="{{registros.archivo}}">{{registros.archivo}}</a></p>
+  <h1 align="center">{{registro.contenido}}</h2>
+  <h2 align="center">Año: {{registro.anio}}</h1>
+  <h3>Ubicación fisica:</h3>
+  <p>Estante: {{registro.estante}} Caja: {{registro.caja}}</p>
+  <p>Tipo de continente: {{registro.continente}}</p>
+  <h3>Datos de digitalización:</h3>
+  <p>Realizado por: {{registro.autor.first_name}} {{registro.autor.last_name}}</p>
+  <p>Estado de conservación: {{registro.estado_conservacion}}</p>
+  <p>Estado: {{registro.estado_escaneo}}</p>
+  <p>Cant Hojas: {{registro.cant_hojas}}</p>
+  <p>Fecha de carga: {{registro.fecha_creacion}}</p>
+  <p>Observaciones: {{registro.observaciones}}</p>
+  <p><a href="{{registro.archivo}}">{{registro.archivo}}</a></p>
+  <p>Si tiene alguna duda con este documento, pregunte a quien lo digitalizó: <a href="mailto:{{registro.autor.email}}">{{registro.autor.email}}</a></p>
 </div>
-{% if registros.autor == user %}
-  <div class="mt-3">
-    <a href="{% url 'editar_registro' registros.pk%}"
-       class="btn btn-primary btn-sm"
-       role="button">Editar</a>
-  </div>
-  <div class="mt-3">
-    <a href="{% url 'eliminar_registro' registros.pk%}"
-       class="btn btn-primary btn-sm"
-       role="button">Eliminar</a>
-  </div>
+{% if registro.autor == user %}
+<div class="mt-3">
+  <a href="{% url 'editar_registro' registro.pk%}" class="btn btn-primary btn-sm" role="button">Editar</a>
+  <a href="{% url 'eliminar_registro' registro.pk%}" class="btn btn-primary btn-sm" role="button">Eliminar</a>
+</div>
 {% endif %}
 {% endblock %}
