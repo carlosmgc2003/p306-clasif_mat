@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Listado</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'detalle_registro' registro.pk %}">{{ registro.contenido}}</a></li>
+    <li class="breadcrumb-item active">Eliminar</li>
+{% endblock %}
+{% block title %}{{ registros.contenido }}{% endblock %}
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+    <p>Está seguro que desea eliminar "{{ registro }}"?</p>
+    <input type="submit" value="Confirm" />
+</form>
+{% endblock %}
+

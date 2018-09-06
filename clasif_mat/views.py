@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView,CreateView,UpdateView,DeleteView
+from django.urls import reverse_lazy
 
 # Create your views here.
 @method_decorator(login_required, name='dispatch')
@@ -14,7 +15,10 @@ class VistaListaRegistros(ListView):
     context_object_name = 'registros'
     template_name = 'lista_registros.html'
 
-
+class VistaEliminarRegistro(DeleteView):
+    model = Registro
+    success_url = reverse_lazy('home')
+    template_name = 'registro_eliminar.html'
 
 @login_required
 def detalle_registro(request,pk):
