@@ -43,4 +43,4 @@ class Registro(models.Model):
 
    
     def __str__(self):
-        return self.contenido +" de "+str(self.anio)+" escaneado por: "+str(self.autor)
+        return self.contenido +" de "+str(self.anio)+" escaneado por: "+self.autor.first_name+" "+self.autor.last_name

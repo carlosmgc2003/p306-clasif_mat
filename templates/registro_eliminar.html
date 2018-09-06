@@ -8,7 +8,7 @@
 {% block content %}
 <form action="" method="post">{% csrf_token %}
     <p>Está seguro que desea eliminar "{{ registro }}"?</p>
-    <input type="submit" value="Confirm" />
+    <button type="submit" class="btn btn-primary btn-sm">Eliminar</button>
 </form>
 {% endblock %}
 
