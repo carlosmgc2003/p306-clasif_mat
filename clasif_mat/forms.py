@@ -3,6 +3,7 @@ from .models import Registro
 from django.utils.translation import ugettext_lazy as _
 
 class CargarFormulario(forms.ModelForm):
+    
     class Meta:
         model = Registro
         fields = ('anio','contenido','estado_conservacion',
@@ -17,4 +18,13 @@ class CargarFormulario(forms.ModelForm):
             'cant_hojas': _('Páginas:'),
             'archivo': _('Archivo:'),
             'observaciones':_('Observaciones:')
+        }
+        help_texts = {
+            'anio': _('Año de creación del documento.'),
+            'contenido': _('Tema de la documentación escaneada, normalmente el titulo.'),
+            'estado_conservacion':_('Legibilidad del documento orientada al reconocimiento de texto.'),
+            'continente':_('Tipo de continente:'),
+            'cant_hojas': _('Páginas totales del archivo escaneado'),
+            'archivo': _('Seleccione el archivo a subir. Debe estar en formato PDF y su nombre sin espacios ni \ / : * ? " < > |'),
+            'observaciones':_('Alguna información mas de interes para el equipo de investigación.')
         }

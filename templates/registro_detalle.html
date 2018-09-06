@@ -13,4 +13,11 @@
     <p>Realizado por: {{registros.autor}}</p>
     <p><a href="{{registros.archivo}}">{{registros.archivo}}</a></p>
 </div>
+{% if registros.autor == user %}
+  <div class="mt-3">
+    <a href="{% url 'editar_registro' registros.pk%}"
+       class="btn btn-primary btn-sm"
+       role="button">Editar</a>
+  </div>
+{% endif %}
 {% endblock %}

@@ -3,7 +3,9 @@ from .models import Registro
 
 # Register your models here.
 class RegistroAdmin(admin.ModelAdmin):
-    list_display = ('autor','anio','contenido','cant_hojas','archivo')
+    list_display = ('anio','contenido','estado_conservacion',
+        'estado_escaneo','continente','cant_hojas',
+        'archivo','observaciones')
     search_fields = ('autor','anio')
 
 admin.site.register(Registro, RegistroAdmin)
